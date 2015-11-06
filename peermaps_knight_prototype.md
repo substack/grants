@@ -18,8 +18,9 @@ Maps data for community mapping projects and custom visualizations.
 These two pieces together will provide a visable alternative to Google Maps and
 other commerial providers for community mapping projects.
 
-With peer distribution, we can collectively share the costs of running mapping
-infrastructure in a cooperative, non-commercial way with fixed costs.
+Instead of paying for tile hosting or hosting custom geographic datasets, peer
+to peer technologies can provide cooperative, non-commercial infrastructure with
+fixed costs.
 
 # What problem are you trying to solve?
 
