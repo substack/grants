@@ -6,82 +6,70 @@ peermaps
 
 # Describe what you will make.
 
-Peermaps is a collection of reusable, modular tools for manipulating and
-displaying maps. The peermaps data model is tailored for offline access and peer
-to peer distribution.
+Peermaps will host Open Street Map (OSM) tile data over webtorrent to provide
+free web-based maps unencumbered by the usage limits and cost of centralized
+tile providers.
 
-The first part of the peermaps project is seeding Open Street Maps tile data to
-bittorrent and webtorrent, where the users of the system will help to host the
-content. The second part is a spatial index (mddf) that overlays the Open Street
-Maps data for community mapping projects and custom visualizations.
+Recently, web browsers have implemented webrtc support, which allows web pages to
+make direct connections to other browsers without going through a centralized
+server. Peermaps uses webtorrent, an implementation of the bittorrent protocol
+designed to work over webrtc. This means that peermaps can provide maps in an
+ordinary web page with decentralized, cooperative infrastructure that can
+compete with the ease of use of commercial providers like Google Maps.
 
-These two pieces together will provide a visable alternative to Google Maps and
-other commerial providers for community mapping projects.
-
-Instead of paying for tile hosting or hosting custom geographic datasets, peer
-to peer technologies can provide cooperative, non-commercial infrastructure with
-fixed costs.
+This peer hosting technique has some unique advantages that commercial offerings
+support poorly or avoid to cement their platform lock-in such as offline support
+and full data export.
 
 # What problem are you trying to solve?
 
-Open Street Maps is a vast repository of open geographic information, but using
-OSM data in an open project can be challenging.
+Open Street Map data is already published to bittorrent in raw form, but the raw
+data cannot be used to build a map without making tiles first. It is possible to
+generate tiles from OSM data, but requires technical expertise and a large
+amount of computing power and disk space.
 
-The OSM data is free under an open license and can be downloaded in bulk,
-but to make a map requires domain expertise with advanced database tools and
-huge amounts of disk and cpu.
+Due to this difficulty, the most practical option right now for mapping projects
+is to use a commercial provider for map data. Whether this provider uses
+proprietary map data or OSM data doesn't remove the inherent costs and platform
+dependence that occur with a centralized web service.
 
-Many mapping projects use commercial services that provide tile data derived
-from commercial or open street maps data, but these services come with usage
-restrictions and added cost. These commercial offerings are not tailored to
-offline use because their business models are predicated upon fetching data from
-a centralized service.
-
-With peer to peer hosting, we can serve map data without rate limits that works
-online and offline for free, where the users of the system help host the
-content.
+Peer to peer networks can flip these economic models around: the more people use
+a peer to peer platform, the more aggregate resources are available and the
+better the system scales. This means for a modest fixed cost, peermaps can
+operate as an internet-scale, non-commercial public service. Even if the service
+becomes very popular, the hosting demands are fixed because the users get data
+from each other as they use the service instead of from a single source.
 
 # Who do you intend to impact with the project and how do you understand their needs?
 
-Data scientists and programmers will benefit from the
-They can create visualizations and analyses without worrying about signing up
-for the right plan from a commercial offering or downloading the entire OSM
-dataset and having to do everything themselves.
+Peermaps will provide data journalists, civic activists, scientists, and
+computer programmers a cost-free, openly licensed, public resource for
+building custom maps on the web.
 
-Journalists and field scientists will benefit from the offline features of the
-peermaps data models. In remote areas with poor internet access, the peermap
-toolchain will continue to work. Offline features are very important for
-coverage of natural disasters, pandemics, the environment, and conflict zones.
+These users care more about their own projects than about the underlying
+architecture of their maps. Right now, the simple and easy thing for these users
+is to pick a cheap or free tier of service from a commercial map tile provider.
+Peermaps must be as easy to use as these commercial offerings to be successful.
 
-Activists and citizen cartographers will have an easy, non-commercial way to
-publish datasets that overlay Open Street Maps data without worrying about usage
-limits or tile service restrictions.
+Some other users are not well served by existing map offerings because they
+spend much more of their time offline in remote areas. The peermaps data model
+works offline by default, so programmers can create new offline mapping tools
+which target journalists and field scientists covering natural disasters,
+pandemics, the environment, and conflict zones where an internet uplink may be
+very slow and unreliable.
 
 # Please list team members and their qualifications.
 
 James Halliday. Open source programmer. https://github.com/substack
 
 I've worked on open source projects for many years and have published hundreds
-of open source libraries and tools. I have some experience working in Geographic
-Information Systems professionally. I have been working with collaborate peer to
-peer technologies for the past year.
+of open source libraries and tools. I have worked professionally in Geographic
+Information Systems and have build web-based peer to peer distributed systems.
 
 # What progress, if any, have you made on this project?
 
-The spatial index and peer to peer data model are mostly complete.
+I've built a streaming Open Street Maps protobuf parser, a prototype tile
+server processing chain, and torrent feed to publish updates.
 
-These pieces already exist:
-
-* https://github.com/substack/mddf - spatial index tailored for offline use and peer delivery
-* https://www.npmjs.com/package/osm-pbf-parser - Open Street Maps protobuf parser
-* https://github.com/substack/osm-pbf-to-mddf - Open Street Maps to mddf converter
-* https://github.com/Deadarius/mddf-viewer - graphical viewer for mddf files
-
-These pieces remain:
-
-* Tile data generation scripts and hosting
-* Data entry and editing interface for the mddf viewer
-* Export to geojson
-* Data replication using dat (Knight funded, http://dat-data.com/)
-* Embedded web map viewer using webtorrent (https://webtorrent.io/)
-* Zoom-level geometry simplification
+Most of the work of this project involves fully automating the tile server
+processing chain.
