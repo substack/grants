@@ -40,16 +40,16 @@ privately, securely, and directly.
 
 This project will implement:
 
-* a geospatial index that works in node and the browser (1 month)
-* build indexed versions of Open Street Map, landsat imagery (1 month)
+* a geospatial index that works in node and the browser (2 months)
+* build indexed versions of Open Street Map, landsat imagery (2 months)
 * distribute indexed versions over [webtorrent](https://webtorrent.io) and
-[hyperdrive](https://github.com/mafintosh/hyperdrive) (2 weeks)
+[hyperdrive](https://github.com/mafintosh/hyperdrive) (1 month)
 * offline-first web viewer for webtorrent-hosted map layers (2 months)
-* peer to peer map editor for layer overlays (2 months)
-* distribute encrypted map edit feed using [BEP44](https://github.com/feross/bittorrent-dht/pull/61) or hyperdrive (1 month)
-* package and test these offline webapps as native applications using phonegap/cordova (2 weeks)
+* peer to peer map editor for layer overlays (working prototypes: [osm-p2p-db](https://github.com/substack/osm-p2p-db), [osm-p2p-server](https://github.com/substack/osm-p2p-server)) (2 months)
+* distribute encrypted map edit feed using [BEP44](https://github.com/feross/bittorrent-dht/pull/61) or hyperdrive (2 months)
+* package and test these offline webapps as native applications using phonegap/cordova (1 month)
 
-The expected span of this project is 8 months for these deliverables.
+The expected span of this project is 12 months for these deliverables.
 
 A rough implementation of the spatial index is done using KDB trees:
 [peermaps/kdb-tree-store](https://github.com/peermaps/kdb-tree-store),
