@@ -43,7 +43,7 @@ This project will implement:
 * a geospatial index that works in node and the browser (1 month)
 * build indexed versions of Open Street Map, landsat imagery (1 month)
 * distribute indexed versions over [webtorrent](https://webtorrent.io) and
-[hyperdrive](https://github.com/mafintosh/hyperdrive) (1 week)
+[hyperdrive](https://github.com/mafintosh/hyperdrive) (2 weeks)
 * offline-first web viewer for webtorrent-hosted map layers (2 months)
 * peer to peer map editor for layer overlays (2 months)
 * distribute encrypted map edit feed using [BEP44](https://github.com/feross/bittorrent-dht/pull/61) or hyperdrive (1 month)
